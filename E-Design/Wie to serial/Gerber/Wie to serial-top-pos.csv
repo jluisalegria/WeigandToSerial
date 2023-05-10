@@ -1,0 +1,12 @@
+Designator,Val,Package,Mid X,Mid Y,Rot,Side
+C1,10uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,133.604,-90.424,270,top
+C2,10uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,140.716,-90.424,270,top
+C3,0.22uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,162.0305,-85.344,0,top
+C4,0.1uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,145.542,-82.423,0,top
+C5,0.1uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,162.052,-87.376,0,top
+D1,LED_Small,LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,150.876,-92.964,0,top
+R1,R_Small,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,145.542,-88.646,0,top
+R2,R_Small,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,162.052,-89.408,180,top
+U1,L78L05_SOT89,SOT-89-3,137.231199,-91.095801,270,top
+U2,PIC18F14K50-ESS,SSOP-20_5.3x7.2mm_P0.65mm,153.162,-85.852,0,top
+Y2,12 MHz,Resonator_SMD_muRata_CSTxExxV-3Pin_3.0x1.1mm,145.542,-85.471,90,top

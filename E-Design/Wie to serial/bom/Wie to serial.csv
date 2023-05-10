@@ -1,0 +1,15 @@
+"Id";"Identificador";"Empaquetado";"Cantidad";"Identificación";"Suministrador y ref";
+1;"G***";"JL";1;"LOGO";;;
+2;"U2";"SSOP-20_5.3x7.2mm_P0.65mm";1;"PIC18F14K50-ESS";;;
+3;"C3";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";1;"0.22uF";;;
+4;"C1,C2";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";2;"10uF";;;
+5;"C4,C5";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";2;"0.1uF";;;
+6;"D1";"LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder";1;"LED_Small";;;
+7;"H1,H2,H3,H4";"MountingHole_3.2mm_M3_DIN965";4;"MountingHole";;;
+8;"J1";"TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal";1;"01x02";;;
+9;"J2";"TerminalBlock_4Ucon_1x04_P3.50mm_Horizontal";1;"01x04";;;
+10;"J3";"TerminalBlock_4Ucon_1x03_P3.50mm_Horizontal";1;"01x03";;;
+11;"J4";"PinHeader_1x05_P2.54mm_Vertical";1;"Conn_01x05_Male";;;
+12;"R1,R2";"R_0805_2012Metric_Pad1.20x1.40mm_HandSolder";2;"R_Small";;;
+13;"U1";"SOT-89-3";1;"L78L05_SOT89";;;
+14;"Y2";"Resonator_SMD_muRata_CSTxExxV-3Pin_3.0x1.1mm";1;"12 MHz";;;

@@ -9,24 +9,22 @@
 #FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode)
 #FUSES NOIESO 
 #FUSES MCLR
-#FUSES NOWDT                    //No Watch Dog Timer
-#FUSES HS                       //High speed Osc (> 4mhz for PCM/PCH) (>10mhz for PCD)
-#FUSES PUT                      //No Power Up Timer
 #FUSES NOPROTECT                //Code not protected from reading
 #FUSES NODEBUG                  //No Debug mode for ICD
 #FUSES NOBROWNOUT               //No brownout reset
 #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
 #FUSES NOWRT                    //Program memory not write protected
 #FUSES RESERVED                 //Used to set the reserved FUSE bits
+#fuses INTRC          //Internal RC Osc
 
-#use delay(clock=12000000)
+#use delay(internal=8000000)
 #use rs232(baud=38400,parity=N,xmit=PIN_B7,rcv=PIN_B5,bits=8,stream=RS485,ERRORS) //Comunicacion con Wireless Board
 #use rs232(baud=38400,parity=N,xmit=PIN_A0,rcv=PIN_A1,bits=8,stream=Pickit,ERRORS) //Comunicacion con Pickit para configuracion
 #use rs232(baud=9600,parity=N,xmit=PIN_C0,rcv=PIN_A2,bits=8,stream=Sensor,ERRORS) //Comunicacion con Pickit para configuracion
 
 #priority rda,ext1,ext2,timer1
 
-#define Led_Status     PIN_C1
+#define Led_Status     PIN_C5
 #define DRV_485        PIN_B6
 #define DRV_Sensor     PIN_B4
 #define Pin_Flotador   PIN_C2
@@ -97,13 +95,12 @@ void  TIMER1_isr(void)
 {
    set_timer1(28036);
    Blink++;
-   Blink_Flotador++;
-   Tiempo++; 
-   if(Tiempo>=10)
+
+
+   if(Blink>=10)
    {
-      Tiempo=0;
-      Segundos++;
-      Tiempo_Blink=10;
+      Blink=0;
+      output_toggle(Led_Status);
    }
 }
 
@@ -330,30 +327,8 @@ void Calcula_Nivel(void)
 //*****************Funcion que atiende las temporizaciones*******************\\
 void Temporizaciones(void)
 {
-/*
-   if(Segundos>=Tiempo_Envio_CMD && Tiempo_Envio_CMD != 0 ) //
-      {        //
-         Envia_Estado_Pickit();
-         Tiempo=0;            //contador incrementa cada 100 ms
-         Segundos=0;          //Contador incrementa cada 1 s
-      }*/
-   if(Blink>=10)
-      {
-         Blink=0;
-         Indice_Pickit=0;
-         Indice_RS485=0;
-         Indice_Sensor=0;
-         Estado_Flotador();
-         Lee_Distancia();
-         Calcula_Nivel();
-         Envia_Estado_Pickit();
-      }
-    if(Blink_Flotador>=Tiempo_Blink)
-      {
-         Blink_Flotador=0;
-         //Tiempo_Blink=10;
-         output_toggle(Led_Status);
-      }
+
+ 
 }
 //****************************************************************************\\
 void Verifica_CMD_Pickit(void)
@@ -708,7 +683,7 @@ void Verifica_CMD_Sensor(void)
 \*****************************************************************************/
 void main()
 {
-   setup_adc_ports(sAN7);                    
+   setup_adc_ports(sAN7);   
    setup_adc(ADC_CLOCK_INTERNAL);
    setup_vref(FALSE);
    setup_spi(SPI_SS_DISABLED);
@@ -753,12 +728,14 @@ void main()
    }
    Tiempo_Blink=10; 
    
+   puts("Iniciando",pickit);
+   
    while(true)
    {
-      Temporizaciones();   
-      Actualiza_Estado_Relays();
-      Verifica_CMD_Pickit();
-      Verifica_CMD_RS485();
-      Verifica_CMD_Sensor();
+      Temporizaciones();  
+      //Actualiza_Estado_Relays();
+      //Verifica_CMD_Pickit();
+      //Verifica_CMD_RS485();
+      //Verifica_CMD_Sensor();
    }
 }
