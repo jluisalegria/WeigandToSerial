@@ -1,11 +1,11 @@
 __history/
-v1.0.0.ccspjt
-v1.0.0.cof
-v1.0.0.err
-v1.0.0.esym
-v1.0.0.lst
-v1.0.0.STA
-v1.0.0.sym
-v1.0.0.tre
-v1.0.0.xsym
+*.ccspjt
+*.cof
+*.err
+*.esym
+*.lst
+*.STA
+*.sym
+*.tre
+*.xsym
 
